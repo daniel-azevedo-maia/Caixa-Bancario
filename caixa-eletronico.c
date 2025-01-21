@@ -6,24 +6,24 @@
 
 int menuPrincipal(int *opcao) {
 
-    printf("................ CAIXA ELETRÔNICO ................\n\n");
+    printf("................ CAIXA ELETRÃ”NICO ................\n\n");
 
     //sleep(1);
 
     printf("              [  1  ]\tCONSULTAR SALDO\n");
-    printf("              [  2  ]\tDEPÓSITO\n");
+    printf("              [  2  ]\tDEPÃ“SITO\n");
     printf("              [  3  ]\tSAQUE\n");
     printf("              [  4  ]\tFINALIZAR\n");
 
     printf("...................................................\n\n");
 
-    printf("Escolha a opção desejada: ");
+    printf("Escolha a opÃ§Ã£o desejada: ");
     scanf("%d", opcao);
 
     while (*opcao < 1 || *opcao > 4) {
         setbuf(stdin, NULL);
-        printf("Opção inválida! Tente novamente!\n\n");
-        printf("Escolha a opção desejada: ");
+        printf("OpÃ§Ã£o invÃ¡lida! Tente novamente!\n\n");
+        printf("Escolha a opÃ§Ã£o desejada: ");
         scanf("%d", opcao);
     }
 }
@@ -33,15 +33,15 @@ int menuInterno(int *opcao, int *opcao_interna) {
     printf("[  1  ]\tVOLTAR AO MENU PRINCIPAL\n");
     printf("[  2  ]\tSAIR\n");
 
-    printf("Escolha a sua opção: ");
+    printf("Escolha a sua opÃ§Ã£o: ");
     setbuf(stdin, NULL);
 
     scanf("%d", opcao_interna);
 
     while (*opcao_interna < 1 || *opcao_interna > 2) {
         setbuf(stdin, NULL);
-        printf("Opção inválida! Tente novamente!\n\n");
-        printf("Escolha a opção desejada: ");
+        printf("OpÃ§Ã£o invÃ¡lida! Tente novamente!\n\n");
+        printf("Escolha a opÃ§Ã£o desejada: ");
         scanf("%d", opcao_interna);
     }
 
@@ -56,7 +56,7 @@ int menuInterno(int *opcao, int *opcao_interna) {
 
 float novoDeposito(float *saldo, float *valor) {
 
-    printf("\nDeseja fazer um novo depósito [S/N]? ");
+    printf("\nDeseja fazer um novo depÃ³sito [S/N]? ");
     setbuf(stdin, NULL);
     char resp = getchar();
     resp = toupper(resp);
@@ -64,10 +64,10 @@ float novoDeposito(float *saldo, float *valor) {
         system("cls");
         printf("Informe o valor a ser depositado: R$ ");
         scanf("%f", valor);
-        printf("\nVocê depositou mais R$ %.2f!\n", *valor);
+        printf("\nVocÃª depositou mais R$ %.2f!\n", *valor);
         *saldo += *valor;
-        printf("\nSeu saldo atual é de R$ %.2f\n", *saldo);
-        printf("\nDeseja fazer um novo depósito [S/N]? ");
+        printf("\nSeu saldo atual Ã© de R$ %.2f\n", *saldo);
+        printf("\nDeseja fazer um novo depÃ³sito [S/N]? ");
         sleep(2);
         setbuf(stdin, NULL);
         resp = toupper(getchar());
@@ -81,12 +81,12 @@ float novoSaque(float *saldo, float *valor, int *opcao, int *opcao_interna) {
     }
         *saldo -= *valor;
         if (*valor == 0 && *saldo == 0) {
-            printf("Você necessita ter algum valor em conta para sacar!\n\n");
+            printf("VocÃª necessita ter algum valor em conta para sacar!\n\n");
             sleep(1);
         } else {
-           printf("\nVocê sacou R$ %.2f!\n", *valor);
+           printf("\nVocÃª sacou R$ %.2f!\n", *valor);
             sleep(1);
-            printf("\nSeu saldo atual é de R$ %.2f\n", *saldo);
+            printf("\nSeu saldo atual Ã© de R$ %.2f\n", *saldo);
 
             printf("\nDeseja fazer um novo saque [S/N]? ");
             setbuf(stdin, NULL);
@@ -101,9 +101,9 @@ float novoSaque(float *saldo, float *valor, int *opcao, int *opcao_interna) {
                     verificaNegativo(saldo, valor, opcao, opcao_interna);
                 }
                 *saldo -= *valor;
-                printf("\nVocê sacou R$ %.2f!\n", *valor);
+                printf("\nVocÃª sacou R$ %.2f!\n", *valor);
                 sleep(1);
-                printf("\nSeu saldo atual é de R$ %.2f\n", *saldo);
+                printf("\nSeu saldo atual Ã© de R$ %.2f\n", *saldo);
                 printf("\nDeseja fazer um novo saque [S/N]? ");
                 setbuf(stdin, NULL);
                 resp = toupper(getchar());
@@ -114,7 +114,7 @@ float novoSaque(float *saldo, float *valor, int *opcao, int *opcao_interna) {
     }
 
 void verificaNegativo(float *saldo, float *valor, int *opcao, int *opcao_interna) {
-    printf("\nVocê não pode sacar este valor, pois o seu saldo atual é de apenas R$ %.2f.\n", *saldo);
+    printf("\nVocÃª nÃ£o pode sacar este valor, pois o seu saldo atual Ã© de apenas R$ %.2f.\n", *saldo);
     printf("\nInforme o valor a ser sacado: R$ ");
     scanf("%f", valor);
 }
@@ -129,11 +129,11 @@ int main () {
 
     sleep(1);
 
-    printf("Desenvolvido por: Daniel Azevedo de Oliveira Maia ©\n\n");
+    printf("Desenvolvido por: Daniel Azevedo de Oliveira Maia Â©\n\n");
 
     sleep(1);
 
-    printf("Versão 1.0 - 2022\n\n");
+    printf("VersÃ£o 1.0 - 2022\n\n");
 
     sleep(2);
 
@@ -147,7 +147,7 @@ int main () {
             system("cls");
             printf("Consultando saldo...\n\n");
             sleep(2);
-            printf("Seu saldo atual é: R$ %.2f.\n\n", saldo);
+            printf("Seu saldo atual Ã©: R$ %.2f.\n\n", saldo);
             sleep(2);
             menuInterno(&opcao, &opcao_interna);
             break;
@@ -156,10 +156,10 @@ int main () {
             system("cls");
             printf("Informe o valor a ser depositado: R$ ");
             scanf("%f", &valor);
-            printf("\nVocê depositou R$ %.2f!\n", valor);
+            printf("\nVocÃª depositou R$ %.2f!\n", valor);
             saldo += valor;
             sleep(1);
-            printf("\nSeu saldo atual é de R$ %.2f\n", saldo);
+            printf("\nSeu saldo atual Ã© de R$ %.2f\n", saldo);
             novoDeposito(&saldo, &valor);
             menuInterno(&opcao, &opcao_interna);
             break;
